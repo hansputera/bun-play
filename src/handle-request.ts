@@ -1,4 +1,3 @@
-import serveStatic from 'serve-static-bun';
 import {RequestLike} from './http';
 import {routerManager} from './web';
 
@@ -9,6 +8,6 @@ export const handleRequest = async (request: Request): Promise<Response> => {
         Bun.gc(true);
         return await router.exec(requestLike);
     } else {
-        return serveStatic('public')(request);
+        return new Response(Bun.file('public'.concat(requestLike.path)));
     }
 };
