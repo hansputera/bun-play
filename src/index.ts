@@ -1,4 +1,9 @@
 import {handleRequest} from './handle-request';
+import {HomeRouter} from './routers';
+import {routerManager} from './web';
+
+console.log('Registering routers');
+routerManager.push(new HomeRouter());
 
 console.log('API Started!');
 
