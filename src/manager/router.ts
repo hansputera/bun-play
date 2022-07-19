@@ -42,12 +42,9 @@ export class RouterManager<R extends RouterBase> {
                 );
 
             this.routers.set(key, r as R);
-            Bun.gc(true);
         } else {
             this.routers = new Map([...this.routers, ...r.routers]);
             r.routers.clear();
-
-            Bun.gc(true);
         }
     }
 
