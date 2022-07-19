@@ -1,6 +1,10 @@
 {
     "name": "bun-play",
     "version": "0.0.2",
+    "author": {
+        "name": "Hanif Dwy Putra S",
+        "email": "hanifdwyputrasembiring@gmail.com"
+    },
     "main": "src/index.ts",
     "devDependencies": {
         "bun-types": "^0.0.83",
@@ -8,12 +12,5 @@
     },
     "scripts": {
         "format": "prettier . --write"
-    },
-    "author": {
-        "name": "Hanif Dwy Putra S",
-        "email": "hanifdwyputrasembiring@gmail.com"
-    },
-    "dependencies": {
-        "normalize-url": "^7.0.3"
     }
 }
