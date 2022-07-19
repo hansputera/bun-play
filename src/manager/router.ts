@@ -28,20 +28,24 @@ export class RouterManager<R extends RouterBase> {
      */
     push(r: RouterBase | RouterManager<R>): void {
         if (!(r instanceof RouterManager)) {
-            const key = r.method.toUpperCase().concat(':', r.endpoint);
+            let endpoint = sanitizeEndpoint(this.pathLike.concat(r.endpoint));
+            if (!endpoint.length) endpoint = '/';
+
+            const key = r.method.toUpperCase().concat(':', endpoint);
             if (this.routers.has(key))
                 console.warn(
                     'Router ',
-                    r.endpoint,
+                    endpoint,
                     'with ',
                     r.method.toUpperCase(),
                     'is exists!',
                 );
 
-            r.endpoint = this.pathLike.concat(r.endpoint);
             this.routers.set(key, r as R);
+            Bun.gc(true);
         } else {
             this.routers = new Map([...this.routers, ...r.routers]);
+            r.routers.clear();
 
             Bun.gc(true);
         }
