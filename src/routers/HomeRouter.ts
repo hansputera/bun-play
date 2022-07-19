@@ -16,10 +16,8 @@ export class HomeRouter extends RouterBase {
      * @return {Promise<Response>}
      */
     async exec(): Promise<Response> {
-        return new Response(
-            Bun.file('views/index.html'), {
-                'status': 200,
-            }
-        );
+        return new Response(Bun.file('views/index.html'), {
+            status: 200,
+        });
     }
 }
