@@ -12,5 +12,8 @@
     },
     "scripts": {
         "format": "prettier . --write"
+    },
+    "dependencies": {
+        "serve-static-bun": "^0.1.4"
     }
 }
