@@ -1,10 +1,11 @@
 import {handleRequest} from './handle-request';
-import {HomeRouter} from './routers';
+import {apiRouter, HomeRouter} from './routers';
 import {routerManager} from './web';
 import {initDB} from './db';
 
 console.log('Registering routers');
 routerManager.push(new HomeRouter());
+routerManager.push(apiRouter);
 
 console.log('Initializing database');
 initDB();
