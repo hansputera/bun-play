@@ -12,5 +12,8 @@
     "author": {
         "name": "Hanif Dwy Putra S",
         "email": "hanifdwyputrasembiring@gmail.com"
+    },
+    "dependencies": {
+        "normalize-url": "^7.0.3"
     }
 }
