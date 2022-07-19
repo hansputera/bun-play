@@ -1,16 +1,16 @@
 {
-    "name": "bun-play",
-    "version": "0.0.2",
-    "author": {
-        "name": "Hanif Dwy Putra S",
-        "email": "hanifdwyputrasembiring@gmail.com"
-    },
-    "main": "src/index.ts",
-    "devDependencies": {
-        "bun-types": "^0.0.83",
-        "prettier": "^2.7.1"
-    },
-    "scripts": {
-        "format": "prettier . --write"
-    }
+  "name": "bun-play",
+  "version": "0.0.2",
+  "author": {
+    "name": "Hanif Dwy Putra S",
+    "email": "hanifdwyputrasembiring@gmail.com"
+  },
+  "main": "src/index.ts",
+  "devDependencies": {
+    "bun-types": "^0.0.83",
+    "prettier": "^2.7.1"
+  },
+  "scripts": {
+    "format": "prettier . --write"
+  }
 }
