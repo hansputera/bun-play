@@ -1,4 +1,4 @@
-import normalizeUrl from 'normalize-url';
+import {sanitizeEndpoint} from '../util';
 
 /**
  * @class RequestLike
@@ -31,14 +31,12 @@ export class RequestLike {
      * @return {string}
      */
     get path(): string {
-        return new URL(
-            normalizeUrl(this.request.url, {
-                removeQueryParameters: true,
-                removeTrailingSlash: true,
-                stripHash: true,
-                stripTextFragment: true,
-            }),
-        ).pathname;
+        const p = this.url.pathname;
+        if (p.length === 1 && p === '/') {
+            return p;
+        } else {
+            return sanitizeEndpoint(p);
+        }
     }
 
     /**
@@ -54,6 +52,38 @@ export class RequestLike {
      * @return {string}
      */
     get method(): string {
-        return this.request.method;
+        return this.request.method.toUpperCase();
+    }
+
+    /**
+     * Get request body.
+     * @return {Promise<Blob>}
+     */
+    get body(): Promise<Blob> {
+        return this.request.blob();
+    }
+
+    /**
+     * Get Raw request.
+     * @return {Request}
+     */
+    get raw(): Request {
+        return this.request;
+    }
+
+    /**
+     * Get Request Mode.
+     * @return {RequestMode}
+     */
+    get mode(): RequestMode {
+        return this.request.mode;
+    }
+
+    /**
+     * Get query params.
+     * @return {URLSearchParams}
+     */
+    get params(): URLSearchParams {
+        return this.url.searchParams;
     }
 }
